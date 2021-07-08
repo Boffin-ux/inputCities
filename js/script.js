@@ -323,7 +323,9 @@ const getCookie = () => {
          loader(cookie[1]);
       } else {
          localCookie = prompt('Введите локаль (RU, EN или DE)', 'RU');
-         setCookie('local', localCookie.trim().toUpperCase());
+         if (localCookie) {
+            setCookie('local', localCookie.trim().toUpperCase());
+         }
          delete localStorage.dataDefault;
          getCookie();
       }
